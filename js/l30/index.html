@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    
+</head>
+<body>
+   <div id="app">
+        <div>
+            <h1>Hello Vue</h1>
+            <input type="text" v-model.lazy="user">
+            <p>{{hellowString }}</p>
+            <button @click="sayHi" >SayHi</button>
+            <button @click="shows=!shows">{{ shows ? 'Hdide' : 'Show' }}</button>
+           
+            <button @click="number=num">SHOW Lorem № </button>
+            <input type="text" v-model ="num">
+
+
+            <div v-if="number==1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque voluptates, doloribus iusto sint aliquid hic. Facilis aut reiciendis corporis dolorum ratione consequatur quidem, repellendus accusamus facere commodi. Eius, minus voluptatem!</p>
+            </div>
+            <div v-else-if="number==2">
+                <p>Lorem ...</p>
+            </div>
+            <div v-else-if="number==3">
+                <p>Lorem 2...</p>
+            </div>
+            <div v-else></div>
+
+
+            <!-- 
+            <div v-if="shows">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque voluptates, doloribus iusto sint aliquid hic. Facilis aut reiciendis corporis dolorum ratione consequatur quidem, repellendus accusamus facere commodi. Eius, minus voluptatem!</p>
+            </div>
+            <div v-else="shows">
+                <p>Lorem ...</p>
+            </div>
+            <div v-else="shows">
+                <p>Lorem 2...</p>
+            </div> -->
+
+            <!-- <div v-show="shows">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque voluptates, doloribus iusto sint aliquid hic. Facilis aut reiciendis corporis dolorum ratione consequatur quidem, repellendus accusamus facere commodi. Eius, minus voluptatem!</p>
+            </div> -->
+        </div>
+
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el:'#app',
+            data:{
+                //Внутренние переменные экземпляра
+                user:'Andrey',               
+                shows: true,
+                num: 1,
+                number:0,
+                
+            },
+            methods:{
+                //Методы
+                sayHi(){
+                    alert (this.hellowString);
+                }
+            },
+            computed:{
+                // методы возвращающие реактивно какие - то значения //Vue считает их значениями
+                hellowString(){
+                 return   `privet , ${this.user} `;
+
+                }
+
+           
+           
+            },
+            // //Hooks
+            // beforeCreate() {
+            //     console.log("Я собираюсь себя создать") ;
+            // },
+            // created() {
+            //     console.log("Я Родился") ;
+            // },
+            // mounted() {
+            //     console.log("Я Смонтировался") ;
+            // },
+
+        });
+    </script>
+</body>
+</html>

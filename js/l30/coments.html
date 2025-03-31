@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="app">
+
+   </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let= new Vue({
+        el:'#app',
+        date:{
+            items:[],
+            url:'http://jsonplaceholder.typicode.com/comments'
+        },
+        mounted() {
+            fetch(this.url).then(d =>d.json())
+            .then(data => {
+                this.items = data;
+            })
+            .finally(() =>{
+                console.log(this.items);
+            })
+            /* Что то пошло не так вернуться и починить 
+            */
+        },
+    })
+</script>
+
+</body>
+</html>
